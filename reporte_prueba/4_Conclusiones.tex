@@ -1,0 +1,31 @@
+\textcolor{black}{\section{Conclusiones}}
+\textbf{Conclusión de Emilio Cortés}\\
+\noindent Esta práctica permitió comprobar de manera directa cómo un transistor puede funcionar como un interruptor controlado electrónicamente, actuando como intermediario entre señales digitales de bajo consumo y cargas de mayor potencia, como una lámpara de corriente alterna. En lugar de usarse como amplificador, el transistor trabajó únicamente en las regiones de corte y saturación, logrando un cambio claro y eficiente entre el apagado y el encendido del relevador.
+
+El relevador tuvo un papel importante al proporcionar aislamiento entre el circuito de control, basado en Arduino y sensores, y la carga de corriente alterna. Esto garantiza la seguridad del sistema y permite que ambos lados trabajen correctamente a pesar de manejar niveles de voltaje y corriente muy diferentes. Además, al integrar sensores como el ultrasónico para medir distancia y el LM35 para temperatura, se mostró cómo un solo transistor puede servir como base para sistemas automatizados capaces de responder a cambios en el entorno.
+
+En general, el experimento confirmó los principios del funcionamiento del BJT como conmutador y también evidenció su utilidad en aplicaciones actuales de automatización.\\
+
+\textbf{Conclusión de Iván Bautista}\\
+\noindent En esta práctica se hizo uso del transistor y del relevador como componentes electrónicos principales para el control de corriente, utilizadas en el encendido de un foco de manera satisfactoria, en donde se tuvieron que hacer simulaciones para comprobar el correcto funcionamiento del circuito y hacer uso de distintas señales de entrada, y pudiendo así verificar las corrientes base-emisor y base-colector, y los voltajes base-emisor y colector-emisor que se obtenían para cada señal, siendo estos de al rededor de $I_{C} = 61 mA$, $I_{B} = 9 mA$. Para esto también se tuvo que verificar el comportamiento del relevador, usando un diodo 1N4007 como un elemento de seguridad en el circuito.\\
+
+\textbf{Conclusión de Alexis Hernández}\\
+\noindent El uso del transistor BJT nos permitió controlar la señal de entrada y obtener la respuesta deseada en el relevador. El registro de la señal de entrada y de salida con el osciloscopio clarificó el comportamiento del circuito, pues la dinámica de las señales era inversa (si uno se ''activaba'' el otro bajaba a cero, y viceversa). 
+La programación del comportamiento de la señal de entrada en el Arduino y la manifestación del ''efecto'' en la bombilla permitieron entender los principios de lo que se conoce como el ''internet de las cosas'', pues tras cierto umbral de temperatura, de detección de un objeto a cierta distancia o incluso de un simple temporizador permitieron activar y desactivar la bombilla de forma automática. Explotar este principio llevará a construir ''rutinas'' muy creativas y útiles, más allá del laboratorio.\\
+
+\textbf{Conclusión de Kevin Solis}\\ 
+\noindent Se observó el funcionamiento de un transistor BJT y de un relevador; en particular, se analizó con detalle el comportamiento del transistor mediante la medición de sus corrientes (de base $(I_B)$y de colector $(I_C)$) y voltajes (base–emisor $(V_{BE})$ y colector–emisor $(V_{CE})$) en distintas configuraciones. Estas mediciones fueron verificadas mediante simulaciones en Proteus, donde se corroboró que los valores obtenidos coinciden con la teoría del transistor bipolar: la corriente de base es considerablemente menor que la corriente de colector, lo que permite que el transistor opere eficientemente como un conmutador. Asimismo, los voltajes registrados en los estados de corte y saturación concuerdan con lo esperado teóricamente $((V_{CE} \approx 0.1\text{–}0.3\ \mathrm{V}) en saturación y (V_{CE} \approx V_{CC}) en corte)$.
+
+Además, se evidenció la importancia del relevador como interfaz entre circuitos de baja potencia como los controlados por un microcontrolador Arduino y cargas de mayor potencia, por ejemplo una lámpara incandescente alimentada con corriente alterna. Este dispositivo proporciona aislamiento eléctrico y mayor seguridad en la operación. 
+
+El control del relevador, y por lo tanto del foco, se implementó mediante señales digitales generadas por el Arduino, las cuales también pueden ser activadas por sensores externos, como un sensor ultrasónico para detección de proximidad o un sensor LM35 para medición de temperatura.
+\\
+
+\textbf{Conclusión de Leonardo Delgadillo}\\
+\noindent Ésta práctica permite comprender la integración entre componentes electrónicos analógicos y elementos de automatización digital, sentando bases importantes para el diseño de sistemas inteligentes y funcionales. 
+Se pudo comprender cómo el transistor BJT puede ser utilizado como conmutador en aplicaciones reales para controlar cargas externas mediante el uso de relevadores, sensores y microcontroladores como Arduino. Se demostró que el transistor, trabajando en las regiones de corte y saturación, es capaz de amplificar señales digitales débiles y convertirlas en señales capaces de activar dispositivos de mayor potencia como lámparas de CA. Además, se confirmó la importancia del relevador como elemento de aislamiento eléctrico entre circuitos de control y circuitos de potencia, permitiendo una operación segura y eficiente.
+
+La integración de sensores como el ultrasónico y el LM35 permitió desarrollar aplicaciones inteligentes como un sistema de iluminación automática por proximidad y una alarma contra incendios basada en temperatura, lo cual evidenció la versatilidad del transistor y su importancia en el diseño de sistemas automatizados.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace{10mm}

@@ -1,0 +1,117 @@
+\textcolor{black}{\section{Resultados y Análisis}}
+\subsection{Resultados}
+\noindent
+
+\subsubsection{Corrientes $I_{B}$ e $I_{C}$}
+Se presentan las corrientes base y colector 
+\begin{table}[H]
+\centering
+\caption{Corrientes registradas para el primer circuito, en un rango de $200 \mu A$ y $200 mA$ }
+\label{Corrientes1}
+\begin{tabular}{|ll|}
+\hline
+\multicolumn{2}{|c|}{Circuito 1}                                   \\ \hline
+\multicolumn{1}{|l|}{Corriente Base}     & $0.197 \pm 0.004 mA$ \\ \hline
+\multicolumn{1}{|l|}{Corriente colector} & $49 \pm 1.48 mA$        \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Corrientes registradas para el segundo circuito, en un rango de $200 mA$}
+\label{Corrientes2}
+\begin{tabular}{|ll|}
+\hline
+\multicolumn{2}{|c|}{Circuito 2}                              \\ \hline
+\multicolumn{1}{|l|}{Corriente Base}     & $0.9 \pm 0.518 mA$ \\ \hline
+\multicolumn{1}{|l|}{Corriente colector} & $63 \pm 1.76 mA$   \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Corrientes registradas para el tercer circuito, en un rango de $200 mA$}
+\label{Corrientes3}
+\begin{tabular}{|ll|}
+\hline
+\multicolumn{2}{|c|}{Circuito 3}                              \\ \hline
+\multicolumn{1}{|l|}{Corriente Base}     & $0.8 \pm 0.516 mA$ \\ \hline
+\multicolumn{1}{|l|}{Corriente colector} & $61 \pm 1.72 mA$   \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Corrientes registradas para el cuarto circuito, en un rango de $200 mA$}
+\label{Corrientes4}
+\begin{tabular}{|ll|}
+\hline
+\multicolumn{2}{|c|}{Circuito 4}                               \\ \hline
+\multicolumn{1}{|l|}{Corriente Base}     & $0.9 \pm 0.518 mA$  \\ \hline
+\multicolumn{1}{|l|}{Corriente colector} & $61.7 \pm 1.734 mA$ \\ \hline
+\end{tabular}
+\end{table}
+\subsubsection{Voltajes $V_{BE}$ y $V_{CE}$}
+Se presentan los voltajes base-emisor, colector-emisor en el osciloscopio
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.035]{figs/Circuito_1_VB_y_VCE.jpg}
+    \caption{Voltaje base-emisor en CH1 y colector-emisor en CH2 registrado para el circuito 1.}
+    \label{V1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.035]{figs/Circuito_2_VB_y_VCE.jpg}
+    \caption{Voltaje base-emisor en CH1 y colector-emisor en CH2 registrado para el circuito 2.}
+    \label{V2}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.035]{figs/Circuito_3_VCE.jpg}
+    \caption{Voltaje  colector-emisor registrado para el circuito 3.}
+    \label{VCE3}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.035]{figs/Circuito_3_VB.jpg}
+    \caption{Voltaje  base-emisor  registrado para el circuito 3.}
+    \label{VBE3}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.04]{figs/Circuito_4_VB_y_VCE.jpg}
+    \caption{Voltaje base-emisor en CH1 y colector-emisor en CH2 registrado para el circuito 4.}
+    \label{V4}
+\end{figure}
+\subsection{Análisis}
+\noindent 
+
+\subsubsection{Circuito 1}
+Las corrientes registradas en la tabla \ref{Corrientes1} confirman el funcionamiento correcto del transistor pues la corriente de la base es notablemnete mucho menor a la que pasa por el colector, de esta manera la base permite un flujo mayor de corriente en el colector para que de esta forma se alimente el relevador y asi encender o apagar el foco. Aunado a esto, con la configuracion del generador funciones generando pulsos, las formas de onda medidas para este circuito presentadas en las graficas de la imagen \ref{V1} dejan ver que efectivamente el transistor funciona de forma correcta pues con cada pulso entra en saturacion provocando que actue como un switch al dejar pasar mas corriente hacia el relevador. 
+
+
+En la simulación de la figura \ref{Circuito1} se midieron las corrientes base y colector ($I_b = 3.92\ \mathrm{mA}$ y $I_c = 13.3\ \mathrm{mA}$), así como las diferencias de potencial $V_{BE} = 1.08\ \mathrm{V}$ y $V_{CE} = 0.31\ \mathrm{V}$, las cuales no coinciden con las medidas obtenidas en el laboratorio. Esto se debe a la frecuencia empleada en ambas señales y al rápido cambio de la onda, por lo que la corriente varía mucho en comparación con la simulación —la cual representa un entorno más ideal y controlado—. En el laboratorio las variaciones temporales son distintas, lo que propició una medida más certera.
+
+\subsubsection{Circuito 2}
+El circuito se construyó correctamente, pues se observó que al activarse el relevador de nuevo por la saturación del relevador, el foco incandescente se encendía y apagaba de acuerdo con el tiempo de oscilación programado en el código del Arduino, el cual generaba la señal de control.
+
+Con la simulación del segundo circuito \ref{Circuito2} se compararon las mediciones de $I_b$, $I_c$, $V_{BE}$ y $V_{CE}$. Al realizar esta comparación se encontró una discrepancia, aunque mínima, que puede atribuirse a la disipación de potencia en la resistencia y a su tolerancia, así como a la incertidumbre del instrumento empleado para realizar las mediciones. Debido a ello, las diferencias observadas son esperadas y se consideran aceptables dentro del contexto experimental de un laboratorio universitario.
+
+\subsubsection{Circuito 3}
+Al igual que los resultados anteriores, los datos obtenidos reflejan el correcto funcionamiento del circuito y mas importante del transistor, eso se corrobora con los datos registrados en la tabla \ref{Corrientes3}. El pequeño incremento de corriente respecto a lo medido en el circuito 1 puede asociarse a que ahora la fuente de entrada es el arduino, mismo con el cual se controla la señal de entrada generada por el sensor ultrasonico, el cual al detectar un objeto en su rango de distancia manda una señal que genera los pulsos medidos y resitrados en las graficas de la imagen \ref{VBE3} y \ref{VCE3}, de igual forma puede apreciarse el funcionamiento como inversor del transistor, pues cuando un pulso de genera el otro se apaga al igual que los circuitos anteriores. Finalmente cada pulso hacia que el foco se encienda y apague de acuerdo a lo programado en el codigo.
+
+
+No se obtuvieron resultados simulados debido a problemas con el software Proteus. Para realizar una comparación precisa y adecuada, se intentó implementar la misma configuración utilizada en el laboratorio (véase la figura \ref{Circuito3}). Sin embargo, al reproducirla de manera exacta, el simulador no generó la forma de onda esperada debido al tiempo de procesamiento del equipo empleado, el cual reduce la unidad de tiempo a valores muy pequeños. Esto provoca que el comportamiento del circuito tarde en visualizarse y no coincida con lo observado experimentalmente en el laboratorio.
+
+Por esta razón, la comparación no sería válida ni representativa, y únicamente se consideraron las mediciones obtenidas directamente en el laboratorio para el análisis final la cuales se pueden ver en la tabla \ref{Corrientes3}.
+
+
+
+\subsubsection{Circuito 4}
+En el ultimo circuito los resultados tienen de manera parcial la misma interpretacion que los circuitos anteriores, los datos medidos solo nos ayudan a confirmar que el transistor funciona de manera correcrta al trabajar como un switch en el circuito, nuevamente la base recibe poca corriente solo para activar el funcionamiento del transistor para posteriormente permitir el paso de corriente hacia el colector y hacer funcionar el relevador \ref{Corrientes4}. Posteriormente, con la base conectada a la señal de entrada, en este caso el arduino, genera un pulso inverso al generado por el colector \ref{V4}. En este caso, los pulsos son generados por las variones de temperatura detectadas por el sensor de temperatura empleado, dichos pulso se generan de acuerdo a lo establecido por el codigo, por lo que el circuito funciona de manera correcta. 
+

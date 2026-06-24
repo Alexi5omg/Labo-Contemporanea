@@ -1,0 +1,59 @@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%% PRINCIPALES PAQUETES %%%%%%%%
+%      No modificar esta area        %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage[spanish, es-tabla]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{color}
+%\usepackage{hyperref}
+\usepackage[hidelinks]{hyperref} 
+\usepackage{wrapfig}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{adjustbox}
+\usepackage{nccmath}
+\usepackage{subfigure}
+\usepackage{amsfonts,latexsym} % para tener disponibilidad de diversos simbolos
+\usepackage{enumerate}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{threeparttable}
+\usepackage{array,colortbl}
+\usepackage{ifpdf}
+\usepackage{rotating}
+%\usepackage{cite}
+\usepackage{stfloats}
+\usepackage{url}
+\usepackage{listings}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% CREAR Y REESCRIBIR ALGUNOS COMANDOS %%%
+%              No modificar esta area     %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand\IEEEkeywordsname{Palabras clave}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%           CONFIGURACION             %%%
+%              No modificar esta area     %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% correct bad hyphenation here
+\hyphenation{op-tical net-works semi-conduc-tor} %% Con este comando se especifican como pueden seprarse las sílabas adecuadamente en caso una palabra quede en dos lineas diferentes de texto
+\graphicspath{ {figs/} }  %%Ruta donde se encuentran las imágenes, que esté vacio indica que las imagenes están dentro de la misma carpeta que contiene el archivo .tex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% ---- Encabezado con escudos SOLO en la primera página ----
+\newcommand{\firstpagelogos}{%
+  \fancyhf{}% limpia encabezado/pie
+  \fancyhead[L]{\includegraphics[height=3cm]{figs/escudos/escudo-unam.png}}%
+  \fancyhead[R]{\includegraphics[height=3.2cm]{figs/escudos/escudo-ciencias.png}}%
+  \renewcommand{\headrulewidth}{0pt}% sin línea de encabezado
+}
+\fancypagestyle{firstpage}{\firstpagelogos}
+
+% Asegurar espacio de encabezado suficiente para los logos (1.6cm ≈ 45pt)
+\setlength{\headheight}{10pt}
+% (Opcional) separa un poco el encabezado del texto si lo ves muy pegado:
+%\setlength{\headsep}{18pt}
