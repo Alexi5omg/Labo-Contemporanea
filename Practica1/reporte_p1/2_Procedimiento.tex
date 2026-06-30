@@ -1,0 +1,94 @@
+\textcolor{black}{\section{Procedimiento}}
+\noindent Para el primer circuito, \\
+\textbf{I.Circuito eléctrico que controla el encendido y apagado de una lampara de corriente
+alterna.} \\
+Se identifico la fuente de poder  ($+5$ V). Mediante el diagrama se observo que : izq = E, centro = B, derecha = C. \\
+Se tuvo que calcular en un inicio la resistencia base $R_B$ haciendo uso de la Ley de Ohm.\\
+Prosiguiendo con el Montaje físico del circuito, se inserto el transistor BC547 en la protoboard, con las tres patas en hileras separadas en orden E-B-C. Se conecto la fuente de energía (configurada a +5 V DC), con el cable rojo al riel positivo del protoboard y el cable negro del GND al riel negativo del protoboard. Se conecto una pata de la bobina del relevador al riel rojo y la otra pata de la bobina al colector (C) del transistor. Se conecto el ánodo del diodo 1N4007 a la pata del relevador que va al colector (que era la misma que el transistor). Se conecto el cátodo a la fuente, de esa manera el diodo estaba antiparalelo con la bobina. Se conecto el emisor (E) del transistor al riel GND del protoboard. 
+En la parte de potencia AC, se separo la sección AC de la sección de baja tensión, luego se conecto la lámpara en serie con el contacto COM y el contacto NO (normalmente abierto) del relevador, de esta forma la coneccion final fue: fuente AC-NO-COM-lámpara-retorno a la fuente AC.
+
+Posteriormente, se realizaron las mediciones solicitadas:\\
+Para medir $I_{B}$(corriente de base) se utilizo un multímetro. Para ello se conectaron las puntas del multímetro entre la resistencia base y la conexión de la base del transistor para abrir el circuito y realizar la medicion en serie. 
+
+Para medir $I_{C}$ (corriente de colector) se realizo una conexión similar al procedimiento anterior, pero ahora conectando las puntas del multímetro entre la conexión del colector del transistor y el nodo en el que se conectaban el diodo 1N4007 y el relevador.\\
+
+Para medir los voltajes $V_{BE}$ y $V_{CE}$ se utilizo el osciloscopio. El voltaje base-emisor se obtuvo en el CH1, colocando un caiman del cable BNC-Caiman a la conexión de la base del transistor, y la otra salida del caiman a la otra punta a la conexión que daba a tierra sin abrir el circuito, es decir, una conexión en paralelo. Y para el voltaje colector-emisor se midió en el CH2, colocando uno de los caimanes en el nodo del diodo-relevador y otro de los caimanes a la conexión a tierra.\\
+
+
+Para el segundo circuito \\
+\textbf{II.Circuito eléctrico que controla el encendido y apagado de una lampara de corriente alterna utilizando Arduino.}\\
+Se consulto la orientación del transistor BC547 en el diagrama del fabricante, de esta forma con la cara plana frente a nosotros los pines de izquierda a derecha son\textbf{E -- B -- C}.
+Se colocó la protoboard sobre una superficie no conductora y se configuro la fuente de voltaje a 5\,V.
+Se reviso la integridad del circuito midiendo la continuidad de los cables y que el relevador correspondiera a 5\,V en la bobina (se registro la corriente de la bobina $I_{coil}$ en su diagrama).
+
+Se fijo el transistor BC547 en la protoboard con una pata por fila separada (para evitar cortocircuitos).
+Se conecto el \textbf{emisor (E)} del transistor al \textbf{riel GND} de la protoboard (el cable negro).
+Se coloco una pata de la bobina del relevador al \textbf{+5\,V} del riel positivo de la protoboard (cable rojo).
+Se conecto la otra pata de la bobina del relevador al \textbf{colector (C)} del transistor (cable verde). Así la bobina quedó entre +5\,V y el colector. Se fijo el diodo 1N4007 antiparalelo con la bobina: el \textbf{cátodo} (lado con banda) conectado al \textbf{+5\,V}, el \textbf{ánodo} al nodo del colector (donde está la bobina). Esto protegió al transistor contra picos.La resistencia de base se puso entre la \textbf{salida digital del Arduino} (se uso el pin \texttt{D8}) y la \textbf{base (B)} del transistor (cable amarillo). Se conecto el \textbf{GND del Arduino} al \textbf{riel GND} de la protoboard (común de todo el circuito). Se utilizo la parte de potencia AC sin energizarla para ello se conecto la fase de la fuente AC al contacto \textbf{NO} del relevador, el contacto \textbf{COM} al portalámparas y el otro extremo del portalámparas al neutro de la red. Se incluyo un fusible en serie con la fase. Se aseguro el circuito conectando a pines aislados. 
+Se utilizó la alimentación del Arduino \texttt{5V} conectada al riel +5\,V de la protoboard.
+\texttt{GND Arduino} \(\rightarrow\) riel GND (común).
+\texttt{Pin D8 (digital out)} \(\rightarrow\) resistencia $R_B$ \(\rightarrow\) base del transistor.
+Colector del transistor \(\rightarrow\) bobina del relevador \(\rightarrow\) +5\,V. Emisor del transistor \(\rightarrow\) GND. Contactos del relevador (NO/COM) \(\rightarrow\) línea de fase y portalámparas (con fusible en fase). Se reviso la continuidad GND común Arduino-protoboard, la orientación del diodo 1N4007 (banda al +5\,V). Con ayuda del multímetro se aseguro que no existieran cortocircuitos entre +5\,V y GND. La parte AC se mantenia desconectada físicamente o con el fusible abierto hasta la última comprobación.
+Mediante el Programa simple de Arduino (para el ciclo 10\,s encendido / 20\,s apagado) se configuro el sistema de funcionamiento para el relevador.
+
+\begin{verbatim}
+void setup() {
+  pinMode(relayPin, OUTPUT);
+  digitalWrite(relayPin, LOW);
+}
+
+void loop() {
+  digitalWrite(relayPin, HIGH); 
+  delay(10000);                
+  digitalWrite(relayPin, LOW);  
+  delay(20000);                
+}
+\end{verbatim}
+\medskip
+
+Referente a las mediciones realizadas \(\; I_B,\; I_C,\; V_{BE},\; V_{CE}\).
+
+Para medir \(I_B\) (corriente de base):
+Se apago la señal (Arduino desconectado o pin en LOW) y la fuente 5\,V. Se abrio el circuito con el cable entre $R_B$ y la base para colocar el multímetro y medir en serie de la forma: \texttt{Arduino D8} \(\rightarrow\) multímetro (entrada mA) \(\rightarrow\) $R_B$ \(\rightarrow\) base. Se alimento el Arduino para que el pin D8 entregue HIGH y asi medir $I_B$, se registro el valor en modo estable (promedio). Alternativamente, se insertp una shunt de 1\,$\Omega$ en serie con la base para medir la tensión en la shunt con el osciloscopio y asi obtener la forma temporal de $I_B(t)$: $I_B(t)=V_{shunt}(t)/1\Omega$.
+
+Para medir \(I_C\) (corriente de colector / corriente de bobina):
+Se apago la alimentación 5\,V. Se abrio el circuito en el conductor entre la bobina y el colector o entre la bobina y +5\,V (según sea más cómodo). El multímetro se coloco en serie de la forma: \texttt{+5\,V} \(\rightarrow\) multímetro \(\rightarrow\) bobina \(\rightarrow\) colector. Se encendio la alimentación y se activo la señal; se midio $I_C$ con el relevador activo. Si la corriente excedía el rango del multímetro, se utilizaba la shunt de 1\,$\Omega$ en serie con la bobina y se realizaba el calculo $I_C=V_{shunt}/R_{shunt}$ (medida con multímetro o con osciloscopio).
+
+Luego para medir \(V_{BE}\) y \(V_{CE}\) con el multímetro:
+\(V_{BE}\): punta positiva del multímetro en \textbf{base}, punta negativa en \textbf{emisor} (GND). Se midio V en modo DC durante el estado ON. Para \(V_{CE}\): punta positiva en \textbf{colector}, negativa en \textbf{emisor} (GND). Se registro el voltaje en ON (saturación) y en OFF (corte).
+
+Sobre las formas de onda \(V_B(t)\) y \(V_{CE}(t)\) medidas con osciloscopio
+\begin{enumerate}
+  \item Se configuraron las sondas en atenuación 10x.
+  \item Se conecto \textbf{CH1} (punta de sonda) al nodo de la base \textbf{después} de $R_B$ (nodo VB). Se fijo el clip de tierra de la sonda al riel GND de la protoboard (emisor). \\
+        \textit{(Importante: el clip de tierra del osciloscopio está conectado a tierra de red; por eso NO debe conectarse a ningún conductor vivo de la parte AC.)}
+  \item Se conecto \textbf{CH2} (punta) al nodo del colector (nodo VCE), clip de tierra al riel GND.
+  \item Se ajustaron las escalas: CH1 a 2\,V/div (para ver 0–5\,V), CH2 a 2\,V/div (para ver VCE entre 0–5\,V), timebase 2\,ms/div (periodo 30\,s total no es práctico; usamos 20\,ms/div para ver transiciones o 1\,ms/div para ver conmutaciones individuales a 10s/20s escalar temporal a 1\,s/div para ver el ciclo completo).
+  \item Trigger: Se eligio \textit{Edge} en CH1, nivel 2.5\,V, flanco de subida.
+  \item Tras encender el Arduino (con el sketch cargado) y la fuente de 5\,V se Observo en CH1 la señal rectangular VB (0/5\,V con duración 10s ON / 20s OFF) y en CH2 la VCE: \\
+        \(-\) Cuando VB = 5\,V, transistor en saturación y VCE cayó a ~0.1–0.3\,V. \\
+        \(-\) Cuando VB = 0, transistor en corte y VCE ascendió a ~5\,V (o al valor de la bobina).
+  \item Se utilizaron los cursores para medir V\textsubscript{max}, V\textsubscript{min}, y tiempos de subida/caída.
+\end{enumerate}
+
+\subsection*{Medición de la forma de onda de la carga AC (precaución)}
+\begin{itemize}
+  \item \textbf{No} se conecto el clip de tierra del osciloscopio directamente a un conductor de la red AC que no sea el neutro de forma segura. Para observar la onda AC en el punto de carga se utilizo:
+    \begin{enumerate}
+      \item Una sonda diferencial (si estaba disponible), o
+      \item Un transformador de aislamiento entre la red y la carga y luego medimos el secundario con el osciloscopio (clip a GND seguro), o
+      \item Una pinza amperimétrica (current probe) conectada al osciloscopio para observar la corriente sin conexión directa a tierra.
+    \end{enumerate}
+  \item Con estas elementos se registro la conmutación de la carga (aparecio tensión en el portalámparas cuando el relevador cerraba NO–COM).
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+
