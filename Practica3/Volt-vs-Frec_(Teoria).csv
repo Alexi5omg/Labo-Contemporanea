@@ -1,0 +1,9 @@
+Colores,lambda (nm),V_diodo (V),nu (1/s)
+infrarrojo,940,1.319,3.18928E+14
+rojo,635,1.952,4.72114E+14
+naranja,595,2.084,5.03853E+14
+amarillo,585,2.119,5.12466E+14
+verde,525,2.362,5.71033E+14
+azul,465,2.666,6.44715E+14
+violeta,400,3.100,7.49481E+14
+ultravioleta,390,3.179,7.68699E+14
