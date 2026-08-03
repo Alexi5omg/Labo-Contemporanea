@@ -2,7 +2,7 @@
 
 \noindent En la Figura \ref{Graf1} se puede observar los espectros de cada uno de los LEDs; se tomó como la longitud de onda $\lambda$ el valor máximo registrado en el espectro, y como es una distribución, se tomó como barra de incertidumbre el ancho del espectro medido desde la mitad de la altura máxima.
 
-Entonces, con estos datos se utilizó la Ecuación \ref{Ec1} pudiéndose obtener las frecuencias de cada uno. La Figura $\ref{Graf2}$ muestra la gráfica de $\nu \text{ vs. } V_{A-K}$, en donde se realizó una regresión lineal omitiendo la medición más dispersa.
+Entonces, con estos datos se utilizó la Ecuación \ref{eq:frec} para obtener las frecuencias de cada uno. La Figura $\ref{Graf2}$ muestra la gráfica de $\nu \text{ vs. } V_{A-K}$, en donde se realizó una regresión lineal omitiendo la medición más dispersa.
 
 \begin{figure*}
 	\centering
@@ -11,7 +11,7 @@ Entonces, con estos datos se utilizó la Ecuación \ref{Ec1} pudiéndose obtener
 	\label{Graf1}
 \end{figure*}
 
-\begin{figure}
+\begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.5]{figs/Graf2.png}
 	\caption{Gráfica de las frecuencias de cada LED con el las mediciones del voltaje ánodo-cátodo (diodo). Se tiene una $R^2 = 0.99633$.}
@@ -19,7 +19,7 @@ Entonces, con estos datos se utilizó la Ecuación \ref{Ec1} pudiéndose obtener
 \end{figure}
 
 Con esta regresión se obtuvo, al invertir la pendiente, un valor de
-\begin{equation}\label{Ec3}
+\begin{equation}\label{eq:resultado_nuestro}
 	\frac{1}{m} = \frac{h}{e} = 4.370998e-15
 \end{equation}
 en unidades del SI.
