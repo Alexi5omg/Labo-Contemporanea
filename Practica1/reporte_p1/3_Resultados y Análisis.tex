@@ -3,18 +3,20 @@ Al graficar los datos de corriente y voltaje del diodo en polarización directa 
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[scale=0.35]{figs/PD.png}
-	\caption{Polarización directa }
+	\caption{Curva característica de corriente-voltaje ($I_d vs V_d$) del diodo en polarizacion directa}
 	\label{PD}
 \end{figure}
 \FloatBarrier
+
 Para obtener la relación $e/k_b$ a partir de la ecuación linealizada (\ref{shock3}) se graficó $ln(I_d)$ en función de $V_d$, obteniendo el ajuste lineal que se muestra en la figura (\ref*{log-log}): 
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[scale=0.35]{figs/semilog.png}
-	\caption{Ajuste lineal en polarización directa}
+	\caption{Linealización semilogarítmica de la ecuación de Shockley}
 	\label{log-log}
 \end{figure}
 \FloatBarrier
+
 De lo cual se obtiene una pendiente $m=42.7 \pm 1.48V^{-1}$. Utilizando la temperatura registrada de $T=299.15\pm 0.005 K$ y considerando que el diodo opera en la región de difusión ($n \approx1$). El resultado calculado así como el valor teórico esperado con su error relativo ($\epsilon_r$), así como también la incertidumbre de la pendiente ($\sigma$) se encuentran en la tabla (\ref{dat}):
 \begin{table}[htbp] 
 	\centering
@@ -37,7 +39,7 @@ De lo cual se obtiene una pendiente $m=42.7 \pm 1.48V^{-1}$. Utilizando la tempe
 		$R^2$ & 0.998 & \\
 		\hline
  	\end{tabular}
- 	\caption{Resultados obtenidos del ajuste lineal}
+ 	\caption{ Parámetros experimentales, teóricos e incertidumbres derivados del ajuste lineal}
  	\label{dat}
 \end{table}
 \FloatBarrier
@@ -52,5 +54,6 @@ Posteriormente al colocar el diodo en polarización inversa los datos obtenidos 
 	\label{Pin}
 \end{figure}
 \FloatBarrier
+
 En esta figura se observa que la polarización inversa no tiene un crecimiento exponencial de la corriente con el voltaje, mas bien se mantiene prácticamente constante en el orden de los microamperios, correspondiente a la corriente de saturación inversa. La dispersión en los puntos se debe a limitaciones de resolución en los instrumentos de medición, así como también al ruido presente en el montaje 
 \noindent 
